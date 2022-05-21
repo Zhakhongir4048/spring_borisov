@@ -5,6 +5,8 @@ import com.example.spring_borisov.quoters.annotation.InjectRandomInt;
 import com.example.spring_borisov.quoters.annotation.PostProxy;
 import com.example.spring_borisov.quoters.annotation.Profiling;
 import com.example.spring_borisov.quoters.intefrace.Quoter;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +15,8 @@ import javax.annotation.PostConstruct;
 @DeprecatedClass(newImpl = T1000.class)
 @Profiling
 @Component("terminatorQuoter")
+@Getter
+@Setter
 public class TerminatorQuoter implements Quoter {
 
     @InjectRandomInt(min = 2, max = 7)
@@ -38,22 +42,6 @@ public class TerminatorQuoter implements Quoter {
         for (int i = 0; i < repeat; i++) {
             System.out.println("message = " + message);
         }
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public int getRepeat() {
-        return repeat;
-    }
-
-    public void setRepeat(int repeat) {
-        this.repeat = repeat;
     }
 
 }
